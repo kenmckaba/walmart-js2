@@ -6,22 +6,39 @@ import {
   SelectTrigger,
   SelectValueText,
 } from '@/components/ui/select'
-import { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
+import { useQuery } from '@tanstack/react-query'
 
 export const CategoryList = ({ onSelected }) => {
-  const [categories, setCategories] = useState([])
+  const {
+    isPending,
+    error,
+    data: categories,
+  } = useQuery({
+    queryKey: ['categories'],
+    queryFn: async () => {
+      const response = await fetch(
+        'https://dummyjson.com/products/category-list?delay=3000',
+      )
+      if (!response.ok) {
+        throw new Error('Network response was not ok')
+      }
+      return response.json()
+    },
+  })
 
-  useEffect(() => {
-    fetch('https://dummyjson.com/products/category-list')
-      .then((res) => res.json())
-      .then((json) => setCategories(json))
-  }, [])
+  const catlist =
+    (categories && categories.map((cat) => ({ label: cat, value: cat }))) || []
 
-  const catlist = categories.map((cat) => ({ label: cat, value: cat }))
   const cats = createListCollection({
     items: catlist,
   })
+
+  const placeholder = isPending
+    ? 'Loading categories...'
+    : error
+      ? 'error loading categories'
+      : 'Select a category'
 
   return (
     <SelectRoot
@@ -33,7 +50,7 @@ export const CategoryList = ({ onSelected }) => {
       }}
     >
       <SelectTrigger>
-        <SelectValueText placeholder="Select a category" />
+        <SelectValueText placeholder={placeholder} />
       </SelectTrigger>
       <SelectContent>
         {cats.items.map((category) => (
