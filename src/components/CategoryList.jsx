@@ -9,6 +9,16 @@ import {
 import PropTypes from 'prop-types'
 import { useQuery } from '@tanstack/react-query'
 
+const fetchCategories = async () => {
+  const response = await fetch(
+    'https://dummyjson.com/products/category-list?delay=3000',
+  )
+  if (!response.ok) {
+    throw new Error('Network response was not ok')
+  }
+  return response.json()
+}
+
 export const CategoryList = ({ onSelected }) => {
   const {
     isPending,
@@ -16,19 +26,16 @@ export const CategoryList = ({ onSelected }) => {
     data: categories,
   } = useQuery({
     queryKey: ['categories'],
-    queryFn: async () => {
-      const response = await fetch(
-        'https://dummyjson.com/products/category-list?delay=3000',
-      )
-      if (!response.ok) {
-        throw new Error('Network response was not ok')
-      }
-      return response.json()
-    },
+    queryFn: fetchCategories,
   })
 
   const catlist =
     (categories && categories.map((cat) => ({ label: cat, value: cat }))) || []
+
+  // if no categories, create empty list for Select control
+  if (catlist.length === 0) {
+    catlist.push({ label: '', value: '' })
+  }
 
   const cats = createListCollection({
     items: catlist,
