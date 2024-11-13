@@ -1,31 +1,19 @@
 import { Button, Flex } from '@chakra-ui/react'
 import PropTypes from 'prop-types'
-import { useQuery } from '@tanstack/react-query'
-import axios from 'axios'
+import { useCategories } from './hooks/useCategories'
 
 export const CategoryButtons = ({ onSelected }) => {
-  const {
-    isPending,
-    error,
-    data: categories,
-  } = useQuery({
-    queryKey: ['categories'],
-    queryFn: async () => {
-      const response = await axios.get(
-        'https://dummyjson.com/products/category-list?delay=3000',
-      )
-      return response.data
-    },
-  })
+  const { categories, error, isPending } = useCategories()
 
   const placeholder = isPending
     ? 'Loading categories...'
     : error
       ? 'error loading categories'
-      : 'Select a category'
+      : ''
 
   return (
     <Flex width="100%" id="suround" flexWrap="wrap">
+      {placeholder}
       {categories &&
         categories.map((category) => (
           <Button
@@ -34,10 +22,15 @@ export const CategoryButtons = ({ onSelected }) => {
             marginBottom="1"
             key={category}
             background="lightgrey"
+            onClick={() => onSelected(category)}
           >
-            {category}
+            {category.name}
           </Button>
         ))}
     </Flex>
   )
+}
+
+CategoryButtons.propTypes = {
+  onSelected: PropTypes.func,
 }

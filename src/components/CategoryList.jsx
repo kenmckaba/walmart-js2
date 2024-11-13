@@ -7,30 +7,15 @@ import {
   SelectValueText,
 } from '@/components/ui/select'
 import PropTypes from 'prop-types'
-import { useQuery } from '@tanstack/react-query'
-
-const fetchCategories = async () => {
-  const response = await fetch(
-    'https://dummyjson.com/products/category-list?delay=3000',
-  )
-  if (!response.ok) {
-    throw new Error('Network response was not ok')
-  }
-  return response.json()
-}
+import { useCategories } from './hooks/useCategories'
 
 export const CategoryList = ({ onSelected }) => {
-  const {
-    isPending,
-    error,
-    data: categories,
-  } = useQuery({
-    queryKey: ['categories'],
-    queryFn: fetchCategories,
-  })
+  const { categories, error, isPending } = useCategories()
 
   const catlist =
-    (categories && categories.map((cat) => ({ label: cat, value: cat }))) || []
+    (categories &&
+      categories.map((cat) => ({ label: cat.name, value: cat.name }))) ||
+    []
 
   // if no categories, create empty list for Select control
   if (catlist.length === 0) {
