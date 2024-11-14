@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { useProducts } from './hooks/useProducts'
 
 export const Products = (category) => {
-  const { products, error, isPending } = useProducts(category)
+  const { products, error, isPending } = useProducts(category.category)
 
   const placeholder = isPending
     ? 'Loading products...'
