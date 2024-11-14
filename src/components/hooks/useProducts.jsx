@@ -9,11 +9,6 @@ export const useProducts = (category) => {
   } = useQuery({
     queryKey: ['products', category],
     queryFn: async () => {
-      console.log(
-        '@ken selected',
-        category,
-        `https://dummyjson.com/products/category/${category.category}`,
-      )
       const response = await axios.get(
         `https://dummyjson.com/products/category/${category.category}`,
       )

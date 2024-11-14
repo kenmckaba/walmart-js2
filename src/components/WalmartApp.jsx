@@ -17,7 +17,6 @@ export const WalmartApp = () => {
       <Header onSelected={onNewCategory} />
       <CategoryButtons id="catbuttons" onSelected={onNewCategory} />
       {category && <Products category={category} />}
-      <h1>Walmart</h1>
     </VStack>
   )
 }
