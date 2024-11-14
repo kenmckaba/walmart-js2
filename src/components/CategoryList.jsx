@@ -13,9 +13,7 @@ export const CategoryList = ({ onSelected }) => {
   const { categories, error, isPending } = useCategories()
 
   const catlist =
-    (categories &&
-      categories.map((cat) => ({ label: cat.name, value: cat.slug }))) ||
-    []
+    categories?.map((cat) => ({ label: cat.name, value: cat.slug })) || []
 
   // if no categories, create empty list for Select control
   if (catlist.length === 0) {
