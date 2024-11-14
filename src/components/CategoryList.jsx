@@ -14,7 +14,7 @@ export const CategoryList = ({ onSelected }) => {
 
   const catlist =
     (categories &&
-      categories.map((cat) => ({ label: cat.name, value: cat.name }))) ||
+      categories.map((cat) => ({ label: cat.name, value: cat.slug }))) ||
     []
 
   // if no categories, create empty list for Select control
@@ -38,7 +38,7 @@ export const CategoryList = ({ onSelected }) => {
       size="sm"
       width="320px"
       onValueChange={(e) => {
-        onSelected(e)
+        onSelected(e.value[0])
       }}
     >
       <SelectTrigger>

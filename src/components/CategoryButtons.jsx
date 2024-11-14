@@ -20,9 +20,12 @@ export const CategoryButtons = ({ onSelected }) => {
             color="darkblue"
             marginRight="1"
             marginBottom="1"
-            key={category}
+            key={category.slug}
             background="lightgrey"
-            onClick={() => onSelected(category)}
+            onClick={() => {
+              console.log('@ken categorybuttons', category.slug)
+              onSelected(category.slug)
+            }}
           >
             {category.name}
           </Button>
