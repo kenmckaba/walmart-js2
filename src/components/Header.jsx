@@ -4,7 +4,7 @@ import { CategoryList } from './CategoryList'
 import PropTypes from 'prop-types'
 
 export function Header({ onSelected }) {
-  const onSelected2 = (item) => {
+  const onCategorySelected = (item) => {
     console.log('selected item', item)
     onSelected(item)
   }
@@ -16,7 +16,7 @@ export function Header({ onSelected }) {
         <CategoryList
           onSelected={(e) => {
             console.log('asdf Header', e)
-            onSelected2(e)
+            onCategorySelected(e)
           }}
         />
       </HStack>

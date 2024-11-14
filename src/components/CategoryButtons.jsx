@@ -2,7 +2,7 @@ import { Button, Flex } from '@chakra-ui/react'
 import PropTypes from 'prop-types'
 import { useCategories } from './hooks/useCategories'
 
-export const CategoryButtons = ({ onSelected }) => {
+export const CategoryButtons = ({ onCategorySelected }) => {
   const { categories, error, isPending } = useCategories()
 
   const placeholder = isPending
@@ -24,7 +24,7 @@ export const CategoryButtons = ({ onSelected }) => {
             background="lightgrey"
             onClick={() => {
               console.log('@ken categorybuttons', category.slug)
-              onSelected(category.slug)
+              onCategorySelected(category.slug)
             }}
           >
             {category.name}
@@ -35,5 +35,5 @@ export const CategoryButtons = ({ onSelected }) => {
 }
 
 CategoryButtons.propTypes = {
-  onSelected: PropTypes.func,
+  onCategorySelected: PropTypes.func,
 }
