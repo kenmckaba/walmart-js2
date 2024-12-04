@@ -10,7 +10,7 @@ export const useProducts = (category) => {
     queryKey: ['products', category],
     queryFn: async () => {
       const response = await axios.get(
-        `https://dummyjson.com/products/category/${category}`,
+        `https://dummyjson.com/products/category/${category}?delay=3000`,
       )
       return response.data
     },

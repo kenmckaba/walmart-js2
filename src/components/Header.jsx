@@ -3,10 +3,10 @@ import walmartstar from '../assets/walmart-logo.png'
 import { CategoryList } from './CategoryList'
 import PropTypes from 'prop-types'
 
-export function Header({ onSelected }) {
-  const onCategorySelected = (item) => {
+export function Header({ onCategorySelected }) {
+  const onSelected = (item) => {
     console.log('selected item', item)
-    onSelected(item)
+    onCategorySelected(item)
   }
 
   return (
@@ -15,8 +15,7 @@ export function Header({ onSelected }) {
         <Image src={walmartstar} height="100%" marginLeft="20" />
         <CategoryList
           onSelected={(e) => {
-            console.log('asdf Header', e)
-            onCategorySelected(e)
+            onSelected(e)
           }}
         />
       </HStack>
@@ -25,5 +24,5 @@ export function Header({ onSelected }) {
 }
 
 Header.propTypes = {
-  onSelected: PropTypes.func,
+  onCategorySelected: PropTypes.func,
 }

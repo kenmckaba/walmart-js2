@@ -5,11 +5,11 @@ import { Products } from './Products'
 import { useState } from 'react'
 
 export const WalmartApp = () => {
-  const [category, setCategory] = useState('')
+  const [selectedCategory, setSelectedCategory] = useState('')
 
   const onCategorySelected = (category) => {
     console.log('New Category Selected:', category)
-    setCategory(category)
+    setSelectedCategory(category)
   }
 
   return (
@@ -17,9 +17,10 @@ export const WalmartApp = () => {
       <Header onCategorySelected={onCategorySelected} />
       <CategoryButtons
         id="catbuttons"
+        selectedCategory={selectedCategory}
         onCategorySelected={onCategorySelected}
       />
-      {category && <Products category={category} />}
+      {selectedCategory && <Products category={selectedCategory} />}
     </VStack>
   )
 }
