@@ -1,9 +1,12 @@
 import { Button, Card, Flex, Image } from '@chakra-ui/react'
 import PropTypes from 'prop-types'
 import { useProducts } from './hooks/useProducts'
+import { SelectedProduct } from './SelectedProduct'
+import { useState } from 'react'
 
 export const Products = (category) => {
   const { products, error, isPending } = useProducts(category.category)
+  const [selectedProduct, setSelectedProduct] = useState(null)
 
   const placeholder = isPending
     ? 'Loading products...'
@@ -31,10 +34,16 @@ export const Products = (category) => {
               <Card.Description>{product.description}</Card.Description>
             </Card.Body>
             <Card.Footer justifyContent="flex-end">
-              <Button variant="outline">View</Button>
+              <Button
+                variant="outline"
+                onClick={() => setSelectedProduct(product.id)}
+              >
+                View
+              </Button>
             </Card.Footer>
           </Card.Root>
         ))}
+      {selectedProduct && <SelectedProduct productId={selectedProduct} />}
     </Flex>
   )
 }
