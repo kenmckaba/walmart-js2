@@ -46,7 +46,7 @@ export const PaginationEllipsis = forwardRef(
     const { size, variantMap } = useRootProps()
     return (
       <ChakraPagination.Ellipsis ref={ref} {...props} asChild>
-        <Button as='span' variant={variantMap.ellipsis} size={size}>
+        <Button as="span" variant={variantMap.ellipsis} size={size}>
           <HiMiniEllipsisHorizontal />
         </Button>
       </ChakraPagination.Ellipsis>
@@ -142,7 +142,7 @@ export const PaginationItems = (props) => {
           ) : (
             <PaginationItem
               key={index}
-              type='page'
+              type="page"
               value={page.value}
               {...props}
             />
@@ -164,7 +164,7 @@ export const PaginationPageText = forwardRef(
     }, [format, page, pages.length, pageRange, count])
 
     return (
-      <Text fontWeight='medium' ref={ref} {...rest}>
+      <Text fontWeight="medium" ref={ref} {...rest}>
         {content}
       </Text>
     )

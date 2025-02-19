@@ -10,7 +10,7 @@ export const EmptyState = forwardRef(function EmptyState(props, ref) {
           <ChakraEmptyState.Indicator>{icon}</ChakraEmptyState.Indicator>
         )}
         {description ? (
-          <VStack textAlign='center'>
+          <VStack textAlign="center">
             <ChakraEmptyState.Title>{title}</ChakraEmptyState.Title>
             <ChakraEmptyState.Description>
               {description}

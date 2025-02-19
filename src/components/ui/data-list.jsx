@@ -13,7 +13,7 @@ export const DataListItem = forwardRef(function DataListItem(props, ref) {
         {label}
         {info && (
           <ToggleTip content={info}>
-            <IconButton variant='ghost' aria-label='info' size='2xs'>
+            <IconButton variant="ghost" aria-label="info" size="2xs">
               <HiOutlineInformationCircle />
             </IconButton>
           </ToggleTip>

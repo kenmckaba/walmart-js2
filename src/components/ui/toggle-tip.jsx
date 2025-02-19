@@ -21,11 +21,11 @@ export const ToggleTip = forwardRef(function ToggleTip(props, ref) {
       <Portal disabled={!portalled} container={portalRef}>
         <ChakraPopover.Positioner>
           <ChakraPopover.Content
-            width='auto'
-            px='2'
-            py='1'
-            textStyle='xs'
-            rounded='sm'
+            width="auto"
+            px="2"
+            py="1"
+            textStyle="xs"
+            rounded="sm"
             ref={ref}
           >
             {showArrow && (
@@ -45,7 +45,7 @@ export const InfoTip = (props) => {
   const { children, ...rest } = props
   return (
     <ToggleTip content={children} {...rest}>
-      <IconButton variant='ghost' aria-label='info' size='2xs'>
+      <IconButton variant="ghost" aria-label="info" size="2xs">
         <HiOutlineInformationCircle />
       </IconButton>
     </ToggleTip>

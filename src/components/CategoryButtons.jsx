@@ -14,23 +14,20 @@ export const CategoryButtons = ({ onCategorySelected, selectedCategory }) => {
   return (
     <Flex width="100%" id="suround" flexWrap="wrap">
       {placeholder}
-      {categories &&
-        categories.map((category) => (
-          <Button
-            color="darkblue"
-            marginRight="1"
-            marginBottom="1"
-            key={category.slug}
-            background={
-              selectedCategory === category.slug ? 'red' : 'lightgrey'
-            }
-            onClick={() => {
-              onCategorySelected(category.slug)
-            }}
-          >
-            {category.name}
-          </Button>
-        ))}
+      {categories?.map((category) => (
+        <Button
+          color="darkblue"
+          marginRight="1"
+          marginBottom="1"
+          key={category.slug}
+          background={selectedCategory === category.slug ? 'red' : 'lightgrey'}
+          onClick={() => {
+            onCategorySelected(category.slug)
+          }}
+        >
+          {category.name}
+        </Button>
+      ))}
     </Flex>
   )
 }

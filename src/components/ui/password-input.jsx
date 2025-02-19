@@ -33,7 +33,7 @@ export const PasswordInput = forwardRef(function PasswordInput(props, ref) {
 
   return (
     <InputGroup
-      width='full'
+      width="full"
       endElement={
         <VisibilityTrigger
           disabled={rest.disabled}
@@ -63,12 +63,12 @@ const VisibilityTrigger = forwardRef(function VisibilityTrigger(props, ref) {
     <IconButton
       tabIndex={-1}
       ref={ref}
-      me='-2'
-      aspectRatio='square'
-      size='sm'
-      variant='ghost'
-      height='calc(100% - {spacing.2})'
-      aria-label='Toggle password visibility'
+      me="-2"
+      aspectRatio="square"
+      size="sm"
+      variant="ghost"
+      height="calc(100% - {spacing.2})"
+      aria-label="Toggle password visibility"
       {...props}
     />
   )
@@ -82,17 +82,17 @@ export const PasswordStrengthMeter = forwardRef(
     const { label, colorPalette } = getColorPalette(percent)
 
     return (
-      <Stack align='flex-end' gap='1' ref={ref} {...rest}>
-        <HStack width='full' ref={ref} {...rest}>
+      <Stack align="flex-end" gap="1" ref={ref} {...rest}>
+        <HStack width="full" ref={ref} {...rest}>
           {Array.from({ length: max }).map((_, index) => (
             <Box
               key={index}
-              height='1'
-              flex='1'
-              rounded='sm'
+              height="1"
+              flex="1"
+              rounded="sm"
               data-selected={index < value ? '' : undefined}
-              layerStyle='fill.subtle'
-              colorPalette='gray'
+              layerStyle="fill.subtle"
+              colorPalette="gray"
               _selected={{
                 colorPalette,
                 layerStyle: 'fill.solid',
@@ -100,7 +100,7 @@ export const PasswordStrengthMeter = forwardRef(
             />
           ))}
         </HStack>
-        {label && <HStack textStyle='xs'>{label}</HStack>}
+        {label && <HStack textStyle="xs">{label}</HStack>}
       </Stack>
     )
   },

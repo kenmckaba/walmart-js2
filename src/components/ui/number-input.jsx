@@ -4,7 +4,7 @@ import { forwardRef } from 'react'
 export const NumberInputRoot = forwardRef(function NumberInput(props, ref) {
   const { children, ...rest } = props
   return (
-    <ChakraNumberInput.Root ref={ref} variant='outline' {...rest}>
+    <ChakraNumberInput.Root ref={ref} variant="outline" {...rest}>
       {children}
       <ChakraNumberInput.Control>
         <ChakraNumberInput.IncrementTrigger />

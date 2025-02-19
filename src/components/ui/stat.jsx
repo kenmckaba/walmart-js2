@@ -15,7 +15,7 @@ export const StatLabel = forwardRef(function StatLabel(props, ref) {
       {children}
       {info && (
         <ToggleTip content={info}>
-          <IconButton variant='ghost' aria-label='info' size='2xs'>
+          <IconButton variant="ghost" aria-label="info" size="2xs">
             <HiOutlineInformationCircle />
           </IconButton>
         </ToggleTip>
@@ -36,7 +36,7 @@ export const StatValueText = forwardRef(function StatValueText(props, ref) {
 
 export const StatUpTrend = forwardRef(function StatUpTrend(props, ref) {
   return (
-    <Badge colorPalette='green' gap='0' {...props} ref={ref}>
+    <Badge colorPalette="green" gap="0" {...props} ref={ref}>
       <ChakraStat.UpIndicator />
       {props.children}
     </Badge>
@@ -45,7 +45,7 @@ export const StatUpTrend = forwardRef(function StatUpTrend(props, ref) {
 
 export const StatDownTrend = forwardRef(function StatDownTrend(props, ref) {
   return (
-    <Badge colorPalette='red' gap='0' {...props} ref={ref}>
+    <Badge colorPalette="red" gap="0" {...props} ref={ref}>
       <ChakraStat.DownIndicator />
       {props.children}
     </Badge>

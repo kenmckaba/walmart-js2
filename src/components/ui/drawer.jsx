@@ -19,13 +19,13 @@ export const DrawerCloseTrigger = forwardRef(
   function DrawerCloseTrigger(props, ref) {
     return (
       <ChakraDrawer.CloseTrigger
-        position='absolute'
-        top='2'
-        insetEnd='2'
+        position="absolute"
+        top="2"
+        insetEnd="2"
         {...props}
         asChild
       >
-        <CloseButton size='sm' ref={ref} />
+        <CloseButton size="sm" ref={ref} />
       </ChakraDrawer.CloseTrigger>
     )
   },

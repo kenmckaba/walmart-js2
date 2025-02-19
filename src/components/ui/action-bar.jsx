@@ -22,7 +22,7 @@ export const ActionBarCloseTrigger = forwardRef(
   function ActionBarCloseTrigger(props, ref) {
     return (
       <ActionBar.CloseTrigger {...props} asChild ref={ref}>
-        <CloseButton size='sm' />
+        <CloseButton size="sm" />
       </ActionBar.CloseTrigger>
     )
   },

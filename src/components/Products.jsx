@@ -20,7 +20,7 @@ export const Products = (category) => {
 
       {products &&
         products.products.map((product) => (
-          <Card.Root width="210px" margin="1" key={product.id}>
+          <Card.Root width="250px" margin="1" key={product.id}>
             <Card.Body gap="2">
               <Image
                 src={product.thumbnail}

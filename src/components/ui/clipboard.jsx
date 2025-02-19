@@ -17,7 +17,7 @@ const ClipboardIcon = forwardRef(function ClipboardIcon(props, ref) {
 
 const ClipboardCopyText = forwardRef(function ClipboardCopyText(props, ref) {
   return (
-    <ChakraClipboard.Indicator copied='Copied' {...props} ref={ref}>
+    <ChakraClipboard.Indicator copied="Copied" {...props} ref={ref}>
       Copy
     </ChakraClipboard.Indicator>
   )
@@ -26,10 +26,10 @@ const ClipboardCopyText = forwardRef(function ClipboardCopyText(props, ref) {
 export const ClipboardLabel = forwardRef(function ClipboardLabel(props, ref) {
   return (
     <ChakraClipboard.Label
-      textStyle='sm'
-      fontWeight='medium'
-      display='inline-block'
-      mb='1'
+      textStyle="sm"
+      fontWeight="medium"
+      display="inline-block"
+      mb="1"
       {...props}
       ref={ref}
     />
@@ -39,7 +39,7 @@ export const ClipboardLabel = forwardRef(function ClipboardLabel(props, ref) {
 export const ClipboardButton = forwardRef(function ClipboardButton(props, ref) {
   return (
     <ChakraClipboard.Trigger asChild>
-      <Button ref={ref} size='sm' variant='surface' {...props}>
+      <Button ref={ref} size="sm" variant="surface" {...props}>
         <ClipboardIcon />
         <ClipboardCopyText />
       </Button>
@@ -52,11 +52,11 @@ export const ClipboardLink = forwardRef(function ClipboardLink(props, ref) {
     <ChakraClipboard.Trigger asChild>
       <Button
         unstyled
-        variant='plain'
-        size='xs'
-        display='inline-flex'
-        alignItems='center'
-        gap='2'
+        variant="plain"
+        size="xs"
+        display="inline-flex"
+        alignItems="center"
+        gap="2"
         ref={ref}
         {...props}
       >
@@ -71,7 +71,7 @@ export const ClipboardIconButton = forwardRef(
   function ClipboardIconButton(props, ref) {
     return (
       <ChakraClipboard.Trigger asChild>
-        <IconButton ref={ref} size='xs' variant='subtle' {...props}>
+        <IconButton ref={ref} size="xs" variant="subtle" {...props}>
           <ClipboardIcon />
           <ClipboardCopyText srOnly />
         </IconButton>
